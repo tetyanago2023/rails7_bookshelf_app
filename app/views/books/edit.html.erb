@@ -1,2 +1,13 @@
 <h1>Books#edit</h1>
 <p>Find me in app/views/books/edit.html.erb</p>
+
+<%= link_to "Back to Books' List", books_path %>
+<%= form_with model: @book do |form| %>
+  <%= form.label :title %>
+  <%= form.text_field :title %>
+  <%= form.label :author %>
+  <%= form.text_field :author %>
+  <%= form.label :description %>
+  <%= form.text_field :description %>
+  <%= form.submit %>
+<% end %>

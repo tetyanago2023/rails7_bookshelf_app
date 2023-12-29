@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  get 'books/index'
-  get 'books/show'
-  get 'books/new'
-  get 'books/edit'
+  get "/books", to: "books#index"
+  get "/books/show"
+  get "/books/new", to: "books#new"
+  post "/books", to: "books#create"
+  get "/books/:id/edit", to: "books#edit", as: :edit_books
+  patch '/books/:id', to: 'books#update', as: :book
+  delete '/books/:id', to: 'books#destroy'
   resources :books
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
