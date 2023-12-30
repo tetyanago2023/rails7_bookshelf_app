@@ -1,11 +1,14 @@
 <h1>Books#index</h1>
 <p>Find me in app/views/books/index.html.erb</p>
-<%= button_to "Create New Book", books_new_path, method: :get %>
-<% Book.all.each do |book| %>
+<div data-controller="books">
+  <%= button_to "Create New Book", books_new_path, method: :get %>
+  <% Book.all.each do |book| %>
     <p><%= book.title %></p>
     <p><%= book.author %></p>
     <p><%= book.description %></p>
     <p><%= book.reading_status %></p>
     <%= button_to 'Edit Book', edit_books_path(book), method: :get %>
-    <%= button_to 'Delete', book, method: :delete %>
-<% end %>
+    <%= button_to 'Delete', book, method: :delete, data: { action: "click->books#delete" } %>
+  <% end %>
+</div>
+
